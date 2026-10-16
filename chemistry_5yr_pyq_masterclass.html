@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus One Chemistry: 5-Year PYQ Comprehensive Masterclass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --surface-color: #ffffff;
+            --surface-alt: #f4f2ee;
+            --text-primary: #1c1c1a;
+            --text-muted: #65645f;
+            --accent: #2b6cbe; /* Academic Blue */
+            --accent-light: #e6f0f8;
+            --border: #e6e4de;
+            --code-bg: #f7f6f2;
+            --shadow: 0 4px 20px rgba(0,0,0,0.03);
+            --radius: 12px;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121210;
+            --surface-color: #1a1a17;
+            --surface-alt: #242421;
+            --text-primary: #f2f1ed;
+            --text-muted: #a09e95;
+            --accent: #4a90e2;
+            --accent-light: #1c2b3a;
+            --border: #2e2d28;
+            --code-bg: #1f1f1c;
+            --shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Left Sidebar (Navigation) */
+        sidebar {
+            width: 300px;
+            background: var(--surface-color);
+            border-right: 1px solid var(--border);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        sidebar.closed {
+            transform: translateX(-100%);
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: normal;
+            line-height: 1.1;
+        }
+
+        .theme-toggle {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .search-box:focus {
+            border-color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: var(--nav-width, 300px);
+            margin-right: var(--ai-width, 400px);
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1200px;
+            transition: margin-left 0.3s ease, margin-right 0.3s ease;
+        }
+
+        header.main-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .header-text h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        .header-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .toggle-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+        .toggle-btn:hover {
+            opacity: 0.9;
+        }
+
+        section.category-section {
+            margin-bottom: 4rem;
+            background: var(--surface-color);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        section.category-section h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+            font-weight: normal;
+        }
+
+        .pyq-card {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pyq-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .pyq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            gap: 1rem;
+        }
+
+        .pyq-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .badges {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .score-badge {
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .year-badge {
+            background: var(--surface-color);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+        }
+
+        .pyq-body {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .pyq-body p {
+            margin-bottom: 0.75rem;
+        }
+
+        .pyq-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        code, pre {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+
+        pre {
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .solution-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 900px) {
+            sidebar {
+                display: none;
+            }
+            main {
+                margin-left: 0;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <sidebar id="navSidebar">
+        <div class="logo-area">
+            <h1>Plus One<br>5-Year PYQ Vault</h1>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌓</button>
+        </div>
+        <input type="text" class="search-box" id="searchBox" placeholder="Search questions, reactions..." onkeyup="filterContent()">
+        <div class="nav-links">
+            <a href="#cat1">1. Physical Numericals</a>
+            <a href="#cat2">2. Inorganic & Atomic</a>
+            <a href="#cat3">3. Organic Reactions</a>
+            <a href="#cat4">4. Thermodynamics</a>
+            <a href="#cat5">5. One-Word & Assertion</a>
+        </div>
+    </sidebar>
+
+    <main>
+        <header class="main-header">
+            <div class="header-text">
+                <h2>Plus One Chemistry: 5-Year PYQ Vault</h2>
+                <p>Exhaustive question bank covering board exams from past years with step-by-step math, reaction equations, and mechanisms.</p>
+            </div>
+            <div class="header-controls">
+                <button class="toggle-btn" onclick="toggleNavSidebar()">📂 Toggle Nav</button>
+                <button class="toggle-btn" onclick="toggleAISidebar()">🤖 Toggle AI</button>
+            </div>
+        </header>
+
+        <!-- Category 1 -->
+        <section class="category-section" id="cat1">
+            <h3>1. Physical Chemistry Numericals & Mole Concept</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Molar Volume, Mass & Avogadro Number</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2024</span>
+                        <span class="score-badge">3 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Calculate the mass of $112 \text{ L}$ of carbon dioxide ($CO_2$) gas at STP. Also find the total number of molecules present in it.</p>
+                    <div class="solution-box">
+                        <strong>Step-by-Step Solution:</strong><br>
+                        1. Find number of moles ($n$):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;$n = \frac{\text{Given Volume at STP}}{\text{Molar Volume}} = \frac{112 \text{ L}}{22.4 \text{ L/mol}} = 5 \text{ moles}$.<br>
+                        2. Calculate Mass:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;$\text{Mass} = n \times \text{Molar Mass} = 5 \text{ mol} \times 44 \text{ g/mol} = 220 \text{ g}$.<br>
+                        3. Calculate Number of Molecules:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;$\text{Molecules} = n \times N_A = 5 \times 6.022 \times 10^{23} = 3.011 \times 10^{24}$ molecules.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Empirical & Molecular Formula Determination</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2023</span>
+                        <span class="score-badge">4 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> An organic compound contains $4.07\%$ hydrogen, $24.27\%$ carbon, and $71.65\%$ chlorine. Its molar mass is $98.96 \text{ g/mol}$. Find its empirical formula and molecular formula.</p>
+                    <div class="solution-box">
+                        <strong>Step-by-Step Solution:</strong><br>
+                        1. <strong>Moles of each element</strong> (divide % by atomic mass: $C=12, H=1, Cl=35.5$):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• Carbon: $\frac{24.27}{12} = 2.02$<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• Hydrogen: $\frac{4.07}{1} = 4.07$<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;• Chlorine: $\frac{71.65}{35.5} = 2.02$<br>
+                        2. <strong>Simplest atomic ratio</strong> (divide each by smallest value $2.02$):<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;$C: 1$, $H: 2$, $Cl: 1$ $\implies$ <strong>Empirical Formula = $CH_2Cl$</strong>.<br>
+                        3. <strong>Empirical formula mass</strong> = $12 + (2 \times 1) + 35.5 = 49.5 \text{ g/mol}$.<br>
+                        4. <strong>Find $n$ factor</strong>: $n = \frac{\text{Molar Mass}}{\text{Empirical Mass}} = \frac{98.96}{49.5} \approx 2$.<br>
+                        5. <strong>Molecular Formula</strong> = $n \times (\text{Empirical Formula}) = 2 \times CH_2Cl =$ <strong>$C_2H_4Cl_2$</strong>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Limiting Reagent Problem</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2021</span>
+                        <span class="score-badge">3 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> 50 kg of $N_2$ (g) and 10 kg of $H_2$ (g) are mixed to produce $NH_3$ (g). Identify the limiting reagent in the production of ammonia in this reaction.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong><br>
+                        Balanced equation: `N₂ (g) + 3H₂ (g) ⇌ 2NH₃ (g)`<br>
+                        1. Moles of $N_2$ = $\frac{50 \times 10^3 \text{ g}}{28 \text{ g/mol}} = 1786 \text{ mol}$.<br>
+                        2. Moles of $H_2$ = $\frac{10 \times 10^3 \text{ g}}{2 \text{ g/mol}} = 5000 \text{ mol}$.<br>
+                        3. According to stoichiometry, 1 mole of $N_2$ requires 3 moles of $H_2$.<br>
+                        4. For $1786 \text{ mol}$ of $N_2$, required $H_2 = 1786 \times 3 = 5358 \text{ mol}$. But we only have $5000 \text{ mol}$ of $H_2$.<br>
+                        <strong>Conclusion:</strong> $H_2$ is consumed first, making <strong>Hydrogen ($H_2$) the limiting reagent</strong>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category 2 -->
+        <section class="category-section" id="cat2">
+            <h3>2. Inorganic Chemistry & Atomic Structure</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Quantum Numbers & Orbital Nodes Calculation</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2024</span>
+                        <span class="score-badge">3 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Calculate the number of angular nodes, radial nodes, and total nodes for a $3p$ orbital. State the formulas used.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong><br>
+                        For $3p$ orbital: $n = 3$, $l = 1$.<br>
+                        1. <strong>Angular nodes</strong> = $l = 1$.<br>
+                        2. <strong>Radial nodes</strong> = $n - l - 1 = 3 - 1 - 1 = 1$.<br>
+                        3. <strong>Total nodes</strong> = $n - 1 = 3 - 1 = 2$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Anomalous Configuration & Exchange Energy</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2023</span>
+                        <span class="score-badge">2 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Copper ($Cu$) has atomic number 29. Write its electronic configuration and give reasons for its stability.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong><br>
+                        Configuration: $[Ar] 3d^{10} 4s^1$ (instead of $3d^9 4s^2$).<br>
+                        <em>Reasons:</em> Fully-filled $d^{10}$ subshell provides maximum symmetrical distribution and high exchange energy, leading to exceptional stability.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Dipole Moment Comparison ($NH_3$ vs $NF_3$)</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2022</span>
+                        <span class="score-badge">3 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Between $NH_3$ and $NF_3$, which has a higher dipole moment? Explain.</p>
+                    <div class="solution-box">
+                        <strong>Explanation:</strong><br>
+                        In $NH_3$, nitrogen is more electronegative than hydrogen; orbital dipole and bond dipoles reinforce each other. In $NF_3$, fluorine pulls electrons away, opposing the lone pair dipole, reducing net dipole moment. Hence, $NH_3 > NF_3$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Molecular Orbital Theory & Bond Order ($He_2$)</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2020</span>
+                        <span class="score-badge">2 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Using Molecular Orbital (MO) theory, calculate the bond order of $He_2$ and explain why it does not exist.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong><br>
+                        Electronic configuration of $He_2$ (4 electrons): $\sigma 1s^2 \sigma^* 1s^2$<br>
+                        $\text{Bond Order} = \frac{N_b - N_a}{2} = \frac{2 - 2}{2} = 0$.<br>
+                        Since bond order is zero, the molecule is unstable and cannot exist in nature.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category 3 -->
+        <section class="category-section" id="cat3">
+            <h3>3. Organic Chemistry Reactions, Mechanisms & Synthesis</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Markovnikov's Rule & Addition Reaction</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2024</span>
+                        <span class="score-badge">3 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> What happens when propene is treated with hydrogen bromide ($HBr$)? Write the chemical equation and state the rule.</p>
+                    <div class="solution-box">
+                        <strong>Reaction:</strong><br>
+                        <code>CH₃—CH=CH₂ + HBr ⟶ CH₃—CH(Br)—CH₃</code> (2-bromopropane)<br>
+                        <em>Markovnikov's Rule:</em> In the ionic addition of an unsymmetrical reagent to an unsymmetrical alkene, the negative part of the reagent adds to the carbon with fewer hydrogen atoms.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Friedel-Crafts Acylation of Benzene</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2022</span>
+                        <span class="score-badge">3 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Explain Friedel-Crafts acylation of benzene with chemical equation. Name the catalyst.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong><br>
+                        Reaction of benzene with acetyl chloride in the presence of anhydrous $AlCl_3$ yields acetophenone.<br>
+                        <code>C₆H₆ + CH₃COCl (anhydrous AlCl₃) ⟶ C₆H₅COCH₃ + HCl</code><br>
+                        <em>Catalyst:</em> Anhydrous aluminum chloride ($\text{AlCl}_3$).
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Wurtz Reaction for Alkanes</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2021</span>
+                        <span class="score-badge">2 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> What is Wurtz reaction? Give an example for the preparation of ethane.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong><br>
+                        Alkyl halides react with sodium metal in dry ether to give higher alkanes containing double the number of carbon atoms.<br>
+                        <code>2CH₃Cl + 2Na (dry ether) ⟶ CH₃—CH₃ + 2NaCl</code> (Ethane)
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Carbocation Stability & Hyperconjugation</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2020</span>
+                        <span class="score-badge">3 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Which is more stable: tertiary carbocation $(CH_3)_3C^+$ or primary carbocation $CH_3CH_2^+$? Give reasons.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Tertiary carbocation is more stable.<br>
+                        <em>Reason:</em> It possesses 9 alpha hydrogens compared to 3 in primary carbocation, resulting in greater hyperconjugative structures and electron-donating inductive effect.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category 4 -->
+        <section class="category-section" id="cat4">
+            <h3>4. Thermodynamics & Chemical Equilibrium</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Relationship between $K_p$ and $K_c$</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2023</span>
+                        <span class="score-badge">3 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Write the relation between $K_p$ and $K_c$ for the equilibrium reaction: <code>N₂ (g) + 3H₂ (g) ⇌ 2NH₃ (g)</code></p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong><br>
+                        Formula: $K_p = K_c(RT)^{\Delta n_g}$<br>
+                        Here, $\Delta n_g = 2 - (3 + 1) = -2$.<br>
+                        Thus, $K_p = K_c(RT)^{-2}$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">First Law of Thermodynamics</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2021</span>
+                        <span class="score-badge">2 Scores</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> State the first law of thermodynamics and write its mathematical equation.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong><br>
+                        Energy can neither be created nor destroyed; total energy of an isolated system remains constant.<br>
+                        Equation: $\Delta U = Q + W$
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category 5 -->
+        <section class="category-section" id="cat5">
+            <h3>5. One-Word, Objectives & Assertion-Reasoning (PYQ Archive)</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Conjugate Acid-Base Pair</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2024</span>
+                        <span class="score-badge">1 Score</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Write the conjugate acid of $NH_3$ and conjugate base of $H_2O$.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong><br>
+                        • Conjugate acid of $NH_3$ = $NH_4^+$<br>
+                        • Conjugate base of $H_2O$ = $OH^-$
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Oxidation Number in Caro's Acid</span>
+                    <div class="badges">
+                        <span class="year-badge">PYQ 2022</span>
+                        <span class="score-badge">1 Score</span>
+                    </div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> What is the oxidation number of sulfur in Caro's acid ($H_2SO_5$)?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> $+6$.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Resizable & Closable AI Sidebar -->
+    <aside class="ai-sidebar closed" id="aiSidebar">
+        <div class="resizer" id="resizer"></div>
+        <div class="ai-header-area">
+            <h3>Omniroute Gemini AI</h3>
+            <button class="close-sidebar-btn" onclick="toggleAISidebar()">✕ Close</button>
+        </div>
+        <p class="ai-sub">Connected to <code>localhost:20128/v1</code> (model: <code>auto/gemini</code>).</p>
+        
+        <div class="chat-box" id="chatBox">
+            <div class="chat-msg ai">👋 Hello! I am connected to your local Omniroute gateway. Ask me any chemistry question or click <strong>"Ask AI"</strong> on any question card!</div>
+        </div>
+        <div class="ai-input-area">
+            <div class="ai-input-wrapper">
+                <textarea id="aiInput" placeholder="Ask AI via Omniroute..."></textarea>
+                <button class="ai-send-btn" onclick="sendToOmniroute()">Send</button>
+            </div>
+        </div>
+    </aside>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+        }
+
+        function toggleNavSidebar() {
+            const nav = document.getElementById('navSidebar');
+            const main = document.getElementById('mainContent');
+            nav.classList.toggle('closed');
+            if (nav.classList.contains('closed')) {
+                main.style.marginLeft = '0px';
+                document.documentElement.style.setProperty('--nav-width', '0px');
+            } else {
+                main.style.marginLeft = '300px';
+                document.documentElement.style.setProperty('--nav-width', '300px');
+            }
+        }
+
+        function toggleAISidebar() {
+            const sidebar = document.getElementById('aiSidebar');
+            const main = document.getElementById('mainContent');
+            sidebar.classList.toggle('closed');
+            if (sidebar.classList.contains('closed')) {
+                main.style.marginRight = '0px';
+                document.documentElement.style.setProperty('--ai-width', '0px');
+            } else {
+                const currentWidth = sidebar.style.width || '400px';
+                main.style.marginRight = currentWidth;
+                document.documentElement.style.setProperty('--ai-width', currentWidth);
+            }
+        }
+
+        async function askOmniroute(promptText) {
+            const sidebar = document.getElementById('aiSidebar');
+            if (sidebar.classList.contains('closed')) {
+                toggleAISidebar();
+            }
+            const input = document.getElementById('aiInput');
+            input.value = promptText;
+            await sendToOmniroute();
+        }
+
+        async function sendToOmniroute() {
+            const input = document.getElementById('aiInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const chatBox = document.getElementById('chatBox');
+            
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-msg user';
+            userMsg.innerText = text;
+            chatBox.appendChild(userMsg);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            input.value = '';
+
+            const loadingMsg = document.createElement('div');
+            loadingMsg.className = 'chat-msg ai loading';
+            loadingMsg.innerText = 'Omniroute (auto/gemini) is thinking...';
+            chatBox.appendChild(loadingMsg);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            try {
+                const res = await fetch('http://localhost:20128/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer dummy-token'
+                    },
+                    body: JSON.stringify({
+                        model: 'auto/gemini',
+                        messages: [
+                            { role: 'system', content: 'You are an expert Plus One Chemistry tutor. Give clear, detailed, accurate explanations with equations and formulas.' },
+                            { role: 'user', content: text }
+                        ]
+                    })
+                });
+
+                const data = await res.json();
+                chatBox.removeChild(loadingMsg);
+
+                const aiReply = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content 
+                    ? data.choices[0].message.content 
+                    : JSON.stringify(data);
+
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'chat-msg ai';
+                aiMsg.innerHTML = formatMarkdown(aiReply);
+                chatBox.appendChild(aiMsg);
+                chatBox.scrollTop = chatBox.scrollHeight;
+                if (window.MathJax) MathJax.typeset();
+
+            } catch (err) {
+                chatBox.removeChild(loadingMsg);
+                const errMsg = document.createElement('div');
+                errMsg.className = 'chat-msg ai';
+                errMsg.innerHTML = `⚠️ <strong>Connection Error:</strong> Could not reach Omniroute at <code>http://localhost:20128/v1</code>.<br>Please ensure your local Omniroute proxy is running and accessible from the browser. (Error: ${err.message})`;
+                chatBox.appendChild(errMsg);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+
+        function formatMarkdown(text) {
+            return text
+                .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/\n/g, '<br>');
+        }
+
+        document.getElementById('aiInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendToOmniroute();
+            }
+        });
+
+        // Resizable Sidebar Logic
+        const sidebar = document.getElementById('aiSidebar');
+        const resizer = document.getElementById('resizer');
+        const main = document.getElementById('mainContent');
+
+        let isResizing = false;
+
+        resizer.addEventListener('mousedown', (e) => {
+            isResizing = true;
+            resizer.classList.add('dragging');
+            e.preventDefault();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isResizing) return;
+            if (sidebar.classList.contains('closed')) return;
+            const newWidth = window.innerWidth - e.clientX;
+            if (newWidth > 280 && newWidth < 750) {
+                sidebar.style.width = newWidth + 'px';
+                document.documentElement.style.setProperty('--ai-width', newWidth + 'px');
+                main.style.marginRight = newWidth + 'px';
+            }
+        });
+
+        window.addEventListener('mouseup', () => {
+            isResizing = false;
+            resizer.classList.remove('dragging');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus One Chemistry: Previous Year Exam Questions & Masterclass</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --surface-color: #ffffff;
+            --surface-alt: #f4f2ee;
+            --text-primary: #1c1c1a;
+            --text-muted: #65645f;
+            --accent: #2b6cbe; /* Academic Blue */
+            --accent-light: #e6f0f8;
+            --border: #e6e4de;
+            --code-bg: #f7f6f2;
+            --shadow: 0 4px 20px rgba(0,0,0,0.03);
+            --radius: 12px;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121210;
+            --surface-color: #1a1a17;
+            --surface-alt: #242421;
+            --text-primary: #f2f1ed;
+            --text-muted: #a09e95;
+            --accent: #4a90e2;
+            --accent-light: #1c2b3a;
+            --border: #2e2d28;
+            --code-bg: #1f1f1c;
+            --shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Sidebar */
+        sidebar {
+            width: 300px;
+            background: var(--surface-color);
+            border-right: 1px solid var(--border);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: normal;
+            line-height: 1.1;
+        }
+
+        .theme-toggle {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .search-box:focus {
+            border-color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 300px;
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1100px;
+        }
+
+        header.main-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+        }
+
+        header.main-header h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        header.main-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Section */
+        section.category-section {
+            margin-bottom: 4rem;
+            background: var(--surface-color);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        section.category-section h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+            font-weight: normal;
+        }
+
+        .pyq-card {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pyq-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .pyq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .pyq-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .score-badge {
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+        }
+
+        .pyq-body {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        .pyq-body p {
+            margin-bottom: 0.75rem;
+        }
+
+        .pyq-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        code, pre {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+
+        pre {
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 0.75rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .solution-box {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 900px) {
+            sidebar {
+                display: none;
+            }
+            main {
+                margin-left: 0;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <sidebar>
+        <div class="logo-area">
+            <h1>Plus One<br>PYQ Masterclass</h1>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌓</button>
+        </div>
+        <input type="text" class="search-box" id="searchBox" placeholder="Search PYQs, topics..." onkeyup="filterContent()">
+        <div class="nav-links">
+            <a href="#cat1">1. One-Word & Objectives</a>
+            <a href="#cat2">2. Equations & Organic Synthesis</a>
+            <a href="#cat3">3. Numerical Problem Solving</a>
+            <a href="#cat4">4. Reasoning & Conceptual Qs</a>
+        </div>
+    </sidebar>
+
+    <main>
+        <header class="main-header">
+            <h2>Plus One Chemistry Previous Year Question Bank</h2>
+            <p>Authentic board exam questions categorized by type with complete step-by-step solutions and conceptual insights.</p>
+        </header>
+
+        <!-- Category 1 -->
+        <section class="category-section" id="cat1">
+            <h3>1. One-Word, Objective & Assertion-Reason Questions (1-Score)</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Assertion-Reasoning (Boyle's Law)</span>
+                    <span class="score-badge">1 Score</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Assertion (A): A gas having a volume of 44 L at 1 atm pressure will compress to 11 L at 4 atm pressure.<br>
+                    Reason (R): According to Boyle’s Law, $P_1V_1 = P_2V_2$.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Both (A) and (R) are true, and (R) is the correct explanation of (A).<br>
+                        <em>Explanation:</em> $1 \text{ atm} \times 44 \text{ L} = 4 \text{ atm} \times V_2 \implies V_2 = 11 \text{ L}$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Isoelectronic Species Identification</span>
+                    <span class="score-badge">1 Score</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Identify the species among $N^{3-}, O^{2-}, F^{-}, Na^{+}, Mg^{2+}$ that has the largest ionic radius.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> $N^{3-}$ (Nitride ion).<br>
+                        <em>Explanation:</em> All are isoelectronic (10 electrons each). As nuclear charge ($Z$) decreases, the attraction on electrons decreases, increasing ionic size. $N^{3-}$ has the lowest atomic number ($Z=7$), hence the largest radius.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">IUPAC Nomenclature of Element</span>
+                    <span class="score-badge">1 Score</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> What is the IUPAC name of the element with atomic number $Z = 114$?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Ununquadium ($Uuq$).<br>
+                        <em>Explanation:</em> $1 = \text{un}, 1 = \text{un}, 4 = \text{quad} + \text{ium}$.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category 2 -->
+        <section class="category-section" id="cat2">
+            <h3>2. Chemical Equations, Preparations & Organic Conversions (2-3 Scores)</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Hydrogenation / Reduction Equation</span>
+                    <span class="score-badge">2 Scores</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Complete the reaction and name the product: <br>
+                    <code>CH≡C—CH₃ + 2H₂ ⟶ ?</code></p>
+                    <div class="solution-box">
+                        <strong>Answer & Equation:</strong><br>
+                        <code>CH≡C—CH₃ + 2H₂ ⟶ CH₃—CH₂—CH₃</code> (Propane)<br>
+                        <em>Explanation:</em> Complete catalytic hydrogenation of propyne over metal catalysts ($Pt/Pd/Ni$) reduces the triple bond to a saturated alkane.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Calcium Carbide Reaction</span>
+                    <span class="score-badge">2 Scores</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Write the balanced chemical equation for the reaction of calcium carbide with water. In whose industrial preparation is this used?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong><br>
+                        <code>CaC₂ + 2H₂O ⟶ Ca(OH)₂ + C₂H₂ (Ethyne/Acetylene)</code><br>
+                        <em>Explanation:</em> This reaction is used for the laboratory and industrial preparation of ethyne gas.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">IUPAC Nomenclature of Functional Groups</span>
+                    <span class="score-badge">2 Scores</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Write the IUPAC name for: <code>CH₃—CH(OH)—CH₂—COOH</code></p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> 3-hydroxybutanoic acid.<br>
+                        <em>Explanation:</em> Numbering starts from the carboxylic acid carbon ($\text{-COOH}$) as C1. The hydroxyl ($\text{-OH}$) group at C3 is prefixed as 'hydroxy'.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category 3 -->
+        <section class="category-section" id="cat3">
+            <h3>3. Numerical Problem-Solving (3-4 Scores)</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Molar Volume & Mass Calculation</span>
+                    <span class="score-badge">3 Scores</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Calculate the mass and number of molecules in 112 L of $CO_2$ gas at STP.</p>
+                    <div class="solution-box">
+                        <strong>Solution Steps:</strong><br>
+                        1. Number of moles ($n$) = $\frac{\text{Given Volume at STP}}{\text{Molar Volume}} = \frac{112 \text{ L}}{22.4 \text{ L/mol}} = 5 \text{ moles}$.<br>
+                        2. Mass of $CO_2$ = $\text{Moles} \times \text{Molar Mass} = 5 \text{ mol} \times 44 \text{ g/mol} = 220 \text{ g}$.<br>
+                        3. Number of molecules = $5 \times 6.022 \times 10^{23} = 3.011 \times 10^{24}$ molecules.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Relationship between $K_p$ and $K_c$</span>
+                    <span class="score-badge">3 Scores</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Derive or write the relationship between $K_p$ and $K_c$ for the ammonia synthesis reaction: <br>
+                    <code>N₂ (g) + 3H₂ (g) ⇌ 2NH₃ (g)</code></p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong><br>
+                        Formula: $K_p = K_c(RT)^{\Delta n_g}$<br>
+                        • Gaseous moles of products = $2$<br>
+                        • Gaseous moles of reactants = $3 + 1 = 4$<br>
+                        • $\Delta n_g = 2 - 4 = -2$<br>
+                        <strong>Result:</strong> $K_p = K_c(RT)^{-2}$.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category 4 -->
+        <section class="category-section" id="cat4">
+            <h3>4. Reasoning & Conceptual Questions (2-3 Scores)</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Dipole Moment Comparison ($NH_3$ vs $NF_3$)</span>
+                    <span class="score-badge">3 Scores</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Between $NH_3$ and $NF_3$, which has a higher dipole moment? Give reason.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> $NH_3$ has a higher dipole moment.<br>
+                        <em>Reason:</em> In $NH_3$, nitrogen is more electronegative than hydrogen, so bond dipoles and the lone pair dipole point in the same direction. In $NF_3$, fluorine is more electronegative than nitrogen, so the bond dipoles oppose the lone pair dipole direction, canceling out the net dipole moment.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <span class="pyq-title">Second Ionization Enthalpy of Sodium</span>
+                    <span class="score-badge">2 Scores</span>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> The second ionization enthalpy of sodium is much higher than that of magnesium. Why?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> After losing its single valence electron, $Na^+$ attains a stable, inert-gas (Neon) electronic configuration. Removing a second electron requires disrupting this fully-filled octet core, demanding exceptionally high energy. Magnesium still has one more valence electron to easily lose.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+        }
+
+        function filterContent() {
+            const query = document.getElementById('searchBox').value.toLowerCase();
+            const cards = document.querySelectorAll('.pyq-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

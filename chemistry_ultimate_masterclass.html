@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Plus One Chemistry Masterclass: Deep-Dive Concept Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --surface-color: #ffffff;
+            --surface-alt: #f4f2ee;
+            --text-primary: #1c1c1a;
+            --text-muted: #65645f;
+            --accent: #bc462b; /* Terracotta */
+            --accent-light: #f7e6e2;
+            --border: #e6e4de;
+            --code-bg: #f7f6f2;
+            --shadow: 0 4px 20px rgba(0,0,0,0.03);
+            --radius: 12px;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121210;
+            --surface-color: #1a1a17;
+            --surface-alt: #242421;
+            --text-primary: #f2f1ed;
+            --text-muted: #a09e95;
+            --accent: #d96248;
+            --accent-light: #3a221d;
+            --border: #2e2d28;
+            --code-bg: #1f1f1c;
+            --shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Sidebar */
+        sidebar {
+            width: 340px;
+            background: var(--surface-color);
+            border-right: 1px solid var(--border);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: normal;
+            line-height: 1.1;
+        }
+
+        .theme-toggle {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .search-box:focus {
+            border-color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        main {
+            margin-left: 340px;
+            flex: 1;
+            padding: 3rem 4rem;
+            max-width: 1200px;
+        }
+
+        header.main-header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+        }
+
+        header.main-header h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 3.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+
+        header.main-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        section.chapter {
+            margin-bottom: 4rem;
+            background: var(--surface-color);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        section.chapter h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2.4rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+            font-weight: normal;
+        }
+
+        .concept-card {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .concept-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .c-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .c-body {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .c-body p {
+            margin-bottom: 1rem;
+        }
+
+        .c-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        code, pre {
+            font-family: 'JetBrains Mono', monospace;
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+
+        pre {
+            padding: 1.2rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            line-height: 1.5;
+        }
+
+        .deep-dive {
+            background: var(--accent-light);
+            border-left: 4px solid var(--accent);
+            padding: 1.2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 900px) {
+            sidebar {
+                display: none;
+            }
+            main {
+                margin-left: 0;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <sidebar>
+        <div class="logo-area">
+            <h1>Ultimate<br>Masterclass</h1>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌓</button>
+        </div>
+        <input type="text" class="search-box" id="searchBox" placeholder="Search deep-dive concepts..." onkeyup="filterContent()">
+        <div class="nav-links">
+            <a href="#ch1">1. Basic Concepts & Stoichiometry</a>
+            <a href="#ch2">2. Structure of Atom & Quantum Mechanics</a>
+            <a href="#ch3">3. Periodicity & Periodic Properties</a>
+            <a href="#ch4">4. Chemical Bonding & Molecular Structure</a>
+            <a href="#ch5">5. Chemical Thermodynamics</a>
+            <a href="#ch6">6. Chemical & Ionic Equilibrium</a>
+            <a href="#ch7">7. Redox Reactions & Electrochemistry</a>
+            <a href="#ch8">8. Organic Chemistry: Basics & Techniques</a>
+            <a href="#ch9">9. Hydrocarbons & Reaction Mechanisms</a>
+        </div>
+    </sidebar>
+
+    <main>
+        <header class="main-header">
+            <h2>Ultimate Plus One Chemistry Masterclass</h2>
+            <p>An exhaustive, beginner-friendly textbook breakdown explaining every single concept, underlying theory, derivation, and solved example from scratch.</p>
+        </header>
+
+        <!-- Chapter 1 -->
+        <section class="chapter" id="ch1">
+            <h3>Chapter 1: Some Basic Concepts of Chemistry</h3>
+            
+            <div class="concept-card">
+                <div class="c-title">1. The Mole Concept & Molar Calculations</div>
+                <div class="c-body">
+                    <p><strong>What is a Mole?</strong> In chemistry, counting atoms individually is impossible because they are infinitesimally small. A mole is simply a collection of $6.022 \times 10^{23}$ entities (atoms, molecules, or ions). This number is known as <strong>Avogadro's Number ($N_A$)</strong>.</p>
+                    <p><strong>Fundamental Formulas:</strong></p>
+                    <pre>Number of Moles (n) = Given Mass (W) / Molar Mass (M)
+Number of Moles (n) = Given Volume at STP / 22.4 L
+Number of Moles (n) = Number of Particles / 6.022 × 10²³</pre>
+                    <div class="deep-dive">
+                        <strong>Worked Example:</strong> Find the number of moles and molecules in $180 \text{ g}$ of water ($H_2O$).<br>
+                        • Molar mass of $H_2O = (2 \times 1) + 16 = 18 \text{ g/mol}$.<br>
+                        • Moles ($n$) = $\frac{180}{18} = 10 \text{ moles}$.<br>
+                        • Molecules = $10 \times 6.022 \times 10^{23} = 6.022 \times 10^{24}$ molecules.
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="c-title">2. Concentration Terms: Molarity vs. Molality</div>
+                <div class="c-body">
+                    <p><strong>Molarity ($M$):</strong> Defined as the number of moles of solute dissolved in 1 liter of solution.</p>
+                    <pre>Molarity (M) = Moles of Solute (n) / Volume of Solution in Litres (V)</pre>
+                    <p><strong>Molality ($m$):</strong> Defined as the number of moles of solute dissolved in 1 kilogram of solvent.</p>
+                    <pre>Molality (m) = Moles of Solute (n) / Mass of Solvent in Kilograms (Kg)</pre>
+                    <div class="deep-dive">
+                        <strong>Crucial Examination Question:</strong> Why does Molarity change with temperature while Molality remains constant?<br>
+                        <em>Explanation:</em> Molarity involves volume ($V$), and liquids expand or contract when temperature changes. Molality involves mass ($W$), which is completely independent of temperature changes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="c-title">3. Laws of Chemical Combination</div>
+                <div class="c-body">
+                    <p>• <strong>Law of Conservation of Mass (Lavoisier):</strong> Matter can neither be created nor destroyed in a chemical reaction (Total mass of reactants = Total mass of products).</p>
+                    <p>• <strong>Law of Definite Proportions (Proust):</strong> A given chemical compound always contains exactly the same proportion of elements by mass, regardless of its source.</p>
+                    <p>• <strong>Law of Multiple Proportions (Dalton):</strong> If two elements can combine to form more than one compound, the masses of one element that combine with a fixed mass of the other are in ratios of small whole numbers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 2 -->
+        <section class="chapter" id="ch2">
+            <h3>Chapter 2: Structure of Atom & Quantum Mechanics</h3>
+
+            <div class="concept-card">
+                <div class="c-title">1. Quantum Numbers & Their Significance</div>
+                <div class="c-body">
+                    <p>To completely describe an electron in an atom, four quantum numbers are required:</p>
+                    <p>1. <strong>Principal Quantum Number ($n$):</strong> Denotes the main energy level (shell) and size ($n = 1, 2, 3, 4\dots$).</p>
+                    <p>2. <strong>Azimuthal Quantum Number ($l$):</strong> Denotes the subshell shape ($s, p, d, f$). Values range from $0$ to $n-1$.</p>
+                    <p>3. <code>Magnetic Quantum Number ($m_l$):</code> Denotes the spatial orientation of orbitals. Values range from $-l$ to $+l$ through $0$.</p>
+                    <p>4. <strong>Spin Quantum Number ($m_s$):</strong> Denotes the direction of electron spin ($+\frac{1}{2}$ or $-\frac{1}{2}$).</p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="c-title">2. Orbital Nodes Calculation</div>
+                <div class="c-body">
+                    <p>A <strong>node</strong> is a region where the probability of finding an electron is zero.</p>
+                    <pre>Angular Nodes = l
+Radial Nodes = n - l - 1
+Total Nodes = n - 1</pre>
+                    <div class="deep-dive">
+                        <strong>Example ($3p$ orbital):</strong> Here $n = 3$, $l = 1$ (for $p$).<br>
+                        • Angular nodes = $1$<br>
+                        • Radial nodes = $3 - 1 - 1 = 1$<br>
+                        • Total nodes = $3 - 1 = 2$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="c-title">3. Anomalous Configurations of Chromium & Copper</div>
+                <div class="c-body">
+                    <p>• <strong>Chromium ($Z=24$):</strong> Expected $[Ar] 3d^4 4s^2$, actual is <code>[Ar] 3d⁵ 4s¹</code>.</p>
+                    <p>• <strong>Copper ($Z=29$):</strong> Expected $[Ar] 3d^9 4s^2$, actual is <code>[Ar] 3d¹⁰ 4s¹</code>.</p>
+                    <p><strong>Why?</strong> Half-filled ($d^5$) and fully-filled ($d^{10}$) configurations possess symmetrical charge distribution and maximum exchange energy, granting extraordinary thermodynamic stability.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 3 -->
+        <section class="chapter" id="ch3">
+            <h3>Chapter 3: Classification of Elements and Periodicity</h3>
+
+            <div class="concept-card">
+                <div class="c-title">1. Ionization Enthalpy & Successive Energies</div>
+                <div class="c-body">
+                    <p><strong>Definition:</strong> The energy required to remove the outermost electron from an isolated gaseous atom in its ground state.</p>
+                    <div class="deep-dive">
+                        <strong>Why is $IE_2$ of Sodium exceptionally high?</strong><br>
+                        After losing 1 electron, $Na^+$ achieves a stable Neon noble gas octet configuration ($2,8$). Removing a second electron means breaking into this tightly-held inert core shell, requiring massive energy.
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="c-title">2. Isoelectronic Species & Ionic Radii</div>
+                <div class="c-body">
+                    <p>Species with the identical number of electrons are called <strong>isoelectronic</strong> (e.g., $N^{3-}, O^{2-}, F^{-}, Na^{+}, Mg^{2+}$ all have 10 electrons).</p>
+                    <p><strong>Trend:</strong> Among isoelectronic ions, anions with higher negative charge have the largest size (due to higher electron-electron repulsion), while cations with higher positive charge have the smallest size (due to stronger nuclear pull).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 4 -->
+        <section class="chapter" id="ch4">
+            <h3>Chapter 4: Chemical Bonding and Molecular Structure</h3>
+
+            <div class="concept-card">
+                <div class="c-title">1. VSEPR Theory & Molecular Geometries</div>
+                <div class="c-body">
+                    <p>Valence Shell Electron Pair Repulsion (VSEPR) theory dictates that electron pairs around a central atom repel each other and arrange themselves to minimize repulsion.</p>
+                    <pre>• 4 Bond Pairs, 0 Lone Pairs  ➔ Tetrahedral (109.5°) e.g., CH₄
+• 3 Bond Pairs, 1 Lone Pair   ➔ Pyramidal (107°) e.g., NH₃
+• 2 Bond Pairs, 2 Lone Pairs  ➔ Bent / V-Shape (104.5°) e.g., H₂O
+• 4 Bond Pairs, 1 Lone Pair   ➔ See-Saw e.g., SF₄</pre>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="c-title">2. Molecular Orbital Theory (MOT) & Bond Order</div>
+                <div class="c-body">
+                    <p>Atomic orbitals combine to form bonding and anti-bonding molecular orbitals.</p>
+                    <pre>Bond Order = ½ (Number of Bonding Electrons - Number of Anti-bonding Electrons)</pre>
+                    <p>• A <strong>positive bond order</strong> indicates a stable molecule exists.<br>
+                    • A <strong>zero or negative bond order</strong> indicates the molecule cannot exist (e.g., $He_2$).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 5 -->
+        <section class="chapter" id="ch5">
+            <h3>Chapter 5: Chemical Thermodynamics</h3>
+
+            <div class="concept-card">
+                <div class="c-title">1. First Law of Thermodynamics & Enthalpy Relation</div>
+                <div class="c-body">
+                    <p><strong>Law:</strong> Energy can neither be created nor destroyed.</p>
+                    <pre>ΔU = Q + W</pre>
+                    <p><strong>Enthalpy Relation:</strong> $\Delta H = \Delta U + P\Delta V = \Delta U + \Delta n_g RT$. When change in gaseous moles $\Delta n_g = 0$, $\Delta H = \Delta U$.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 6 -->
+        <section class="chapter" id="ch6">
+            <h3>Chapter 6: Chemical & Ionic Equilibrium</h3>
+
+            <div class="concept-card">
+                <div class="c-title">1. Relation Between $K_p$ and $K_c$</div>
+                <div class="c-body">
+                    <pre>Kp = Kc (RT)^Δn_g</pre>
+                    <p>Where $\Delta n_g = (\text{Moles of gaseous products}) - (\text{Moles of gaseous reactants})$. For $N_2 + 3H_2 \rightleftharpoons 2NH_3$, $\Delta n_g = 2 - 4 = -2$, so $K_p = K_c(RT)^{-2}$.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 7 -->
+        <section class="chapter" id="ch7">
+            <h3>Chapter 7: Redox Reactions & Electrochemistry</h3>
+
+            <div class="concept-card">
+                <div class="c-title">1. Oxidation Numbers & Galvanic Cells</div>
+                <div class="c-body">
+                    <p>• In Caro's acid ($H_2SO_5$), due to peroxy linkages, sulfur exhibits an oxidation state of <strong>$+6$</strong>.</p>
+                    <p>• Galvanic Cell representation: Anode (oxidation) on left, salt bridge ($||$) in center, cathode (reduction) on right: `Zn | Zn²⁺ || Cu²⁺ | Cu`.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 8 -->
+        <section class="chapter" id="ch8">
+            <h3>Chapter 8: Organic Chemistry: Basics & Techniques</h3>
+
+            <div class="concept-card">
+                <div class="c-title">1. Carbocation Stability & Hyperconjugation</div>
+                <div class="c-body">
+                    <p>Tertiary carbocations $(CH_3)_3C^+$ are most stable due to 9 $\alpha$-hydrogens providing maximum hyperconjugative delocalization. Stability order: $3^\circ > 2^\circ > 1^\circ > \text{Methyl}$.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 9 -->
+        <section class="chapter" id="ch9">
+            <h3>Chapter 9: Hydrocarbons & Reaction Mechanisms</h3>
+
+            <div class="concept-card">
+                <div class="c-title">1. Markovnikov's Rule & Friedel-Crafts Reactions</div>
+                <div class="c-body">
+                    <p>• <strong>Markovnikov's Rule:</strong> In addition of $HBr$ to propene, the negative bromide ion attaches to the carbon with fewer hydrogens, yielding 2-bromopropane.</p>
+                    <p>• <strong>Friedel-Crafts Acylation:</strong> Benzene reacts with acyl chloride in the presence of anhydrous $AlCl_3$ to form acetophenone.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+        }
+
+        function filterContent() {
+            const query = document.getElementById('searchBox').value.toLowerCase();
+            const cards = document.querySelectorAll('.concept-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
