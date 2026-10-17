@@ -842,7 +842,7 @@
             <h3>Omniroute Gemini AI</h3>
             <button class="close-sidebar-btn" onclick="toggleAISidebar()">✕ Close</button>
         </div>
-        <p class="ai-sub">Connected to <code>localhost:20128/v1</code> (model: <code>auto/gemini</code>).</p>
+        <p class=\"ai-sub\">Connected to <code>throws-rise-organic-waiver.trycloudflare.com</code> (model: <code>auto/gemini</code>).</p>
         
         <div class="chat-box" id="chatBox">
             <div class="chat-msg ai">👋 Hello! I am connected to your local Omniroute gateway. Ask me any chemistry question or click <strong>"Ask AI"</strong> on any question card!</div>
@@ -944,7 +944,7 @@
             chatBox.scrollTop = chatBox.scrollHeight;
 
             try {
-                const res = await fetch('http://localhost:20128/v1/chat/completions', {
+                const res = await fetch('https://throws-rise-organic-waiver.trycloudflare.com/v1/chat/completions', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -977,7 +977,7 @@
                 chatBox.removeChild(loadingMsg);
                 const errMsg = document.createElement('div');
                 errMsg.className = 'chat-msg ai';
-                errMsg.innerHTML = `⚠️ <strong>Connection Error:</strong> Could not reach Omniroute at <code>http://localhost:20128/v1</code>.<br>Please ensure your local Omniroute proxy is running and accessible from the browser. (Error: ${err.message})`;
+                errMsg.innerHTML = `⚠️ <strong>Connection Error:</strong> Could not reach Omniroute at <code>https://throws-rise-organic-waiver.trycloudflare.com/v1</code>.<br>Please ensure your proxy tunnel is active. (Error: ${err.message})`;
                 chatBox.appendChild(errMsg);
                 chatBox.scrollTop = chatBox.scrollHeight;
             }
