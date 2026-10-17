@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plus One Chemistry: 5-Year PYQ Comprehensive Masterclass</title>
+    <title>Plus One Chemistry: 5-Year PYQ Masterclass & Omniroute AI</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
         window.MathJax = {
@@ -26,6 +26,8 @@
             --code-bg: #f7f6f2;
             --shadow: 0 4px 20px rgba(0,0,0,0.03);
             --radius: 12px;
+            --nav-width: 300px;
+            --ai-width: 400px;
         }
 
         [data-theme="dark"] {
@@ -51,7 +53,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             display: flex;
             min-height: 100vh;
             transition: background 0.3s, color 0.3s;
@@ -146,8 +148,8 @@
 
         /* Main Content */
         main {
-            margin-left: var(--nav-width, 300px);
-            margin-right: var(--ai-width, 400px);
+            margin-left: var(--nav-width);
+            margin-right: var(--ai-width);
             flex: 1;
             padding: 3rem 4rem;
             max-width: 1200px;
@@ -310,6 +312,177 @@
             color: var(--text-primary);
         }
 
+        .ask-ai-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+            margin-left: 0.5rem;
+        }
+        .ask-ai-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Resizable & Closable AI Sidebar */
+        .ai-sidebar {
+            width: 400px;
+            min-width: 300px;
+            max-width: 750px;
+            background: var(--surface-color);
+            border-left: 1px solid var(--border);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 20;
+            transition: transform 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .ai-sidebar.closed {
+            transform: translateX(100%);
+        }
+
+        .resizer {
+            width: 6px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: ew-resize;
+            background: transparent;
+            transition: background 0.2s;
+        }
+        .resizer:hover, .resizer.dragging {
+            background: var(--accent);
+        }
+
+        .ai-header-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ai-sidebar h3 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .close-sidebar-btn {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .close-sidebar-btn:hover {
+            border-color: var(--accent);
+        }
+
+        .ai-sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .chat-box {
+            flex: 1;
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .chat-msg {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            max-width: 90%;
+            line-height: 1.6;
+            word-break: break-word;
+        }
+
+        .chat-msg.user {
+            background: var(--accent-light);
+            color: var(--text-primary);
+            align-self: flex-end;
+            border: 1px solid var(--border);
+        }
+
+        .chat-msg.ai {
+            background: var(--surface-color);
+            color: var(--text-primary);
+            align-self: flex-start;
+            border: 1px solid var(--border);
+        }
+
+        .chat-msg.loading {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .ai-input-area {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .ai-input-wrapper {
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-end;
+        }
+
+        .ai-input-area textarea {
+            flex: 1;
+            padding: 0.75rem;
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            resize: vertical;
+            min-height: 50px;
+            max-height: 150px;
+            outline: none;
+        }
+        .ai-input-area textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .ai-send-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            height: 50px;
+            white-space: nowrap;
+        }
+        .ai-send-btn:hover {
+            opacity: 0.9;
+        }
+
         @media (max-width: 900px) {
             sidebar {
                 display: none;
@@ -338,11 +511,11 @@
         </div>
     </sidebar>
 
-    <main>
+    <main id="mainContent">
         <header class="main-header">
             <div class="header-text">
                 <h2>Plus One Chemistry: 5-Year PYQ Vault</h2>
-                <p>Exhaustive question bank covering board exams from past years with step-by-step math, reaction equations, and mechanisms.</p>
+                <p>Authentic board exam questions categorized by type with complete solutions and Omniroute Gemini AI.</p>
             </div>
             <div class="header-controls">
                 <button class="toggle-btn" onclick="toggleNavSidebar()">📂 Toggle Nav</button>
@@ -356,11 +529,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Molar Volume, Mass & Avogadro Number</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2024</span>
-                        <span class="score-badge">3 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Molar Volume, Mass & Avogadro Number</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to calculate mass and number of molecules in 112 L of CO2 at STP.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">3 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Calculate the mass of $112 \text{ L}$ of carbon dioxide ($CO_2$) gas at STP. Also find the total number of molecules present in it.</p>
@@ -378,11 +551,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Empirical & Molecular Formula Determination</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2023</span>
-                        <span class="score-badge">4 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Empirical & Molecular Formula Determination</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to find empirical and molecular formula from percentage composition.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">4 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> An organic compound contains $4.07\%$ hydrogen, $24.27\%$ carbon, and $71.65\%$ chlorine. Its molar mass is $98.96 \text{ g/mol}$. Find its empirical formula and molecular formula.</p>
@@ -403,11 +576,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Limiting Reagent Problem</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2021</span>
-                        <span class="score-badge">3 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Limiting Reagent Problem</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to solve limiting reagent problems with stoichiometry.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">3 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> 50 kg of $N_2$ (g) and 10 kg of $H_2$ (g) are mixed to produce $NH_3$ (g). Identify the limiting reagent in the production of ammonia in this reaction.</p>
@@ -430,11 +603,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Quantum Numbers & Orbital Nodes Calculation</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2024</span>
-                        <span class="score-badge">3 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Quantum Numbers & Orbital Nodes Calculation</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to calculate angular, radial, and total nodes for any orbital.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">3 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Calculate the number of angular nodes, radial nodes, and total nodes for a $3p$ orbital. State the formulas used.</p>
@@ -450,11 +623,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Anomalous Configuration & Exchange Energy</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2023</span>
-                        <span class="score-badge">2 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Anomalous Configuration & Exchange Energy</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Why do chromium and copper have anomalous electronic configurations?')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">2 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Copper ($Cu$) has atomic number 29. Write its electronic configuration and give reasons for its stability.</p>
@@ -468,11 +641,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Dipole Moment Comparison ($NH_3$ vs $NF_3$)</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2022</span>
-                        <span class="score-badge">3 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Dipole Moment Comparison ($NH_3$ vs $NF_3$)</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Why does NH3 have a higher dipole moment than NF3?')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">3 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Between $NH_3$ and $NF_3$, which has a higher dipole moment? Explain.</p>
@@ -485,11 +658,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Molecular Orbital Theory & Bond Order ($He_2$)</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2020</span>
-                        <span class="score-badge">2 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Molecular Orbital Theory & Bond Order ($He_2$)</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain using MO theory why He2 molecule does not exist.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">2 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Using Molecular Orbital (MO) theory, calculate the bond order of $He_2$ and explain why it does not exist.</p>
@@ -509,11 +682,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Markovnikov's Rule & Addition Reaction</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2024</span>
-                        <span class="score-badge">3 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Markovnikov's Rule & Addition Reaction</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('State and explain Markovnikovs rule with an alkene addition example.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">3 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> What happens when propene is treated with hydrogen bromide ($HBr$)? Write the chemical equation and state the rule.</p>
@@ -527,11 +700,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Friedel-Crafts Acylation of Benzene</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2022</span>
-                        <span class="score-badge">3 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Friedel-Crafts Acylation of Benzene</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain Friedel-Crafts acylation of benzene with equation and catalyst.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">3 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Explain Friedel-Crafts acylation of benzene with chemical equation. Name the catalyst.</p>
@@ -546,11 +719,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Wurtz Reaction for Alkanes</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2021</span>
-                        <span class="score-badge">2 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Wurtz Reaction for Alkanes</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain the Wurtz reaction for alkane preparation with an example.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">2 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> What is Wurtz reaction? Give an example for the preparation of ethane.</p>
@@ -564,11 +737,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Carbocation Stability & Hyperconjugation</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2020</span>
-                        <span class="score-badge">3 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Carbocation Stability & Hyperconjugation</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain carbocation stability and hyperconjugation.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">3 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Which is more stable: tertiary carbocation $(CH_3)_3C^+$ or primary carbocation $CH_3CH_2^+$? Give reasons.</p>
@@ -586,11 +759,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Relationship between $K_p$ and $K_c$</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2023</span>
-                        <span class="score-badge">3 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Relationship between $K_p$ and $K_c$</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Derive or explain the relationship between Kp and Kc.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">3 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Write the relation between $K_p$ and $K_c$ for the equilibrium reaction: <code>N₂ (g) + 3H₂ (g) ⇌ 2NH₃ (g)</code></p>
@@ -605,11 +778,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">First Law of Thermodynamics</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2021</span>
-                        <span class="score-badge">2 Scores</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">First Law of Thermodynamics</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('State the first law of thermodynamics.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">2 Scores</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> State the first law of thermodynamics and write its mathematical equation.</p>
@@ -628,11 +801,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Conjugate Acid-Base Pair</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2024</span>
-                        <span class="score-badge">1 Score</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Conjugate Acid-Base Pair</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain conjugate acid-base pairs with examples.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">1 Score</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Write the conjugate acid of $NH_3$ and conjugate base of $H_2O$.</p>
@@ -646,11 +819,11 @@
 
             <div class="pyq-card">
                 <div class="pyq-header">
-                    <span class="pyq-title">Oxidation Number in Caro's Acid</span>
-                    <div class="badges">
-                        <span class="year-badge">PYQ 2022</span>
-                        <span class="score-badge">1 Score</span>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Oxidation Number in Caro's Acid</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Find the oxidation number of sulfur in Caros acid H2SO5.')">💬 Ask AI</button>
                     </div>
+                    <span class="score-badge">1 Score</span>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> What is the oxidation number of sulfur in Caro's acid ($H_2SO_5$)?</p>
@@ -697,6 +870,19 @@
 
         if (localStorage.getItem('theme') === 'dark') {
             document.body.setAttribute('data-theme', 'dark');
+        }
+
+        function filterContent() {
+            const query = document.getElementById('searchBox').value.toLowerCase();
+            const cards = document.querySelectorAll('.pyq-card');
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
 
         function toggleNavSidebar() {
