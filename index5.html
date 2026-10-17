@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plus One Chemistry: 5-Year PYQ Masterclass & Omniroute AI</title>
+    <title>Plus One Chemistry: Comprehensive 10-PYQ Exam Vault (Index2)</title>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
         window.MathJax = {
@@ -65,6 +65,7 @@
             background: var(--surface-color);
             border-right: 1px solid var(--border);
             height: 100vh;
+            max-height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
@@ -75,6 +76,7 @@
             gap: 1.5rem;
             z-index: 10;
             transition: transform 0.3s ease;
+            box-sizing: border-box;
         }
 
         sidebar.closed {
@@ -85,6 +87,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .nav-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .close-nav-btn {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .close-nav-btn:hover {
+            border-color: var(--accent);
         }
 
         .logo-area h1 {
@@ -148,8 +170,8 @@
 
         /* Main Content */
         main {
-            margin-left: var(--nav-width);
-            margin-right: var(--ai-width);
+            margin-left: var(--nav-width, 300px);
+            margin-right: var(--ai-width, 400px);
             flex: 1;
             padding: 3rem 4rem;
             max-width: 1200px;
@@ -237,6 +259,7 @@
             align-items: center;
             margin-bottom: 0.75rem;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .pyq-title {
@@ -485,15 +508,6 @@
 
         @media (max-width: 900px) {
             sidebar {
-                display: none;
-            }
-            main {
-                margin-left: 0;
-                padding: 1.5rem;
-            }
-        }
-        @media (max-width: 900px) {
-            sidebar {
                 transform: translateX(-100%);
             }
             sidebar:not(.closed) {
@@ -521,25 +535,28 @@
 <body>
 
     <sidebar id="navSidebar">
+        <div class="nav-header-row">
+            <h1 style="font-family: 'Instrument Serif', serif; font-size: 1.8rem; color: var(--accent);">Plus One 10-PYQ</h1>
+            <button class="close-nav-btn" onclick="toggleNavSidebar()">✕ Close</button>
+        </div>
         <div class="logo-area">
-            <h1>Plus One<br>5-Year PYQ Vault</h1>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Exam Question Vault</span>
             <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌓</button>
         </div>
-        <input type="text" class="search-box" id="searchBox" placeholder="Search questions, reactions..." onkeyup="filterContent()">
+        <input type="text" class="search-box" id="searchBox" placeholder="Search PYQs, scores..." onkeyup="filterContent()">
         <div class="nav-links">
-            <a href="#cat1">1. Physical Numericals</a>
-            <a href="#cat2">2. Inorganic & Atomic</a>
-            <a href="#cat3">3. Organic Reactions</a>
-            <a href="#cat4">4. Thermodynamics</a>
-            <a href="#cat5">5. One-Word & Assertion</a>
+            <a href="#sec1" onclick="toggleNavSidebar()">1. 1-Score Questions (10 PYQs)</a>
+            <a href="#sec2" onclick="toggleNavSidebar()">2. 2-Score Questions (10 PYQs)</a>
+            <a href="#sec3" onclick="toggleNavSidebar()">3. 3-Score Questions (10 PYQs)</a>
+            <a href="#sec4" onclick="toggleNavSidebar()">4. 4-Score Questions (10 PYQs)</a>
         </div>
     </sidebar>
 
     <main id="mainContent">
         <header class="main-header">
             <div class="header-text">
-                <h2>Plus One Chemistry: 5-Year PYQ Vault</h2>
-                <p>Authentic board exam questions categorized by type with complete solutions and Omniroute Gemini AI.</p>
+                <h2>Plus One Chemistry: Comprehensive 10-PYQ Vault</h2>
+                <p>Curated from official Kerala HSE public question papers (Anil Kumar Hsslive collection). Featuring 10 detailed PYQs per score section with step-by-step solutions and Cloudflare AI tutor.</p>
             </div>
             <div class="header-controls">
                 <button class="toggle-btn" onclick="toggleNavSidebar()">📂 Toggle Nav</button>
@@ -547,28 +564,22 @@
             </div>
         </header>
 
-        <!-- Category 1 -->
-        <section class="category-section" id="cat1">
-            <h3>1. Physical Chemistry Numericals & Mole Concept</h3>
+        <!-- SECTION 1: 1-Score Questions -->
+        <section class="category-section" id="sec1">
+            <h3>1-Score Questions (10 Public Exam PYQs)</h3>
 
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Molar Volume, Mass & Avogadro Number</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to calculate mass and number of molecules in 112 L of CO2 at STP.')">💬 Ask AI</button>
+                        <span class="pyq-title">Q1. Oxygen Atoms in $4\text{ g}$ of $O_2$</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to find the number of oxygen atoms in 4 g of O2.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">3 Scores</span>
+                    <div class="badges"><span class="year-badge">Feb 2008</span><span class="score-badge">1 Score</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> Calculate the mass of $112 \text{ L}$ of carbon dioxide ($CO_2$) gas at STP. Also find the total number of molecules present in it.</p>
+                    <p><strong>Question:</strong> Find the number of oxygen atoms in $4\text{ g}$ of $O_2$.</p>
                     <div class="solution-box">
-                        <strong>Step-by-Step Solution:</strong><br>
-                        1. Find number of moles ($n$):<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;$n = \frac{\text{Given Volume at STP}}{\text{Molar Volume}} = \frac{112 \text{ L}}{22.4 \text{ L/mol}} = 5 \text{ moles}$.<br>
-                        2. Calculate Mass:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;$\text{Mass} = n \times \text{Molar Mass} = 5 \text{ mol} \times 44 \text{ g/mol} = 220 \text{ g}$.<br>
-                        3. Calculate Number of Molecules:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;$\text{Molecules} = n \times N_A = 5 \times 6.022 \times 10^{23} = 3.011 \times 10^{24}$ molecules.
+                        <strong>Answer:</strong> Moles of $O_2 = \frac{4}{32} = 0.125\text{ mol}$. $1\text{ mol } O_2$ contains $2 \times 6.022 \times 10^{23}$ oxygen atoms. Thus, $0.125 \times 2 \times 6.022 \times 10^{23} = 1.505 \times 10^{23}$ oxygen atoms.
                     </div>
                 </div>
             </div>
@@ -576,24 +587,15 @@
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Empirical & Molecular Formula Determination</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to find empirical and molecular formula from percentage composition.')">💬 Ask AI</button>
+                        <span class="pyq-title">Q2. Heavier Atom: One $O$ atom vs 10 $H$ atoms</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Compare the mass of one oxygen atom and 10 hydrogen atoms.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">4 Scores</span>
+                    <div class="badges"><span class="year-badge">Feb 2008</span><span class="score-badge">1 Score</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> An organic compound contains $4.07\%$ hydrogen, $24.27\%$ carbon, and $71.65\%$ chlorine. Its molar mass is $98.96 \text{ g/mol}$. Find its empirical formula and molecular formula.</p>
+                    <p><strong>Question:</strong> Which is heavier, one oxygen atom or 10 hydrogen atoms?</p>
                     <div class="solution-box">
-                        <strong>Step-by-Step Solution:</strong><br>
-                        1. <strong>Moles of each element</strong> (divide % by atomic mass: $C=12, H=1, Cl=35.5$):<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Carbon: $\frac{24.27}{12} = 2.02$<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Hydrogen: $\frac{4.07}{1} = 4.07$<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;• Chlorine: $\frac{71.65}{35.5} = 2.02$<br>
-                        2. <strong>Simplest atomic ratio</strong> (divide each by smallest value $2.02$):<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;$C: 1$, $H: 2$, $Cl: 1$ $\implies$ <strong>Empirical Formula = $CH_2Cl$</strong>.<br>
-                        3. <strong>Empirical formula mass</strong> = $12 + (2 \times 1) + 35.5 = 49.5 \text{ g/mol}$.<br>
-                        4. <strong>Find $n$ factor</strong>: $n = \frac{\text{Molar Mass}}{\text{Empirical Mass}} = \frac{98.96}{49.5} \approx 2$.<br>
-                        5. <strong>Molecular Formula</strong> = $n \times (\text{Empirical Formula}) = 2 \times CH_2Cl =$ <strong>$C_2H_4Cl_2$</strong>.
+                        <strong>Answer:</strong> Mass of one oxygen atom = $16\text{ u}$. Mass of 10 hydrogen atoms = $10 \times 1 = 10\text{ u}$. Therefore, one oxygen atom is heavier.
                     </div>
                 </div>
             </div>
@@ -601,46 +603,148 @@
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Limiting Reagent Problem</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to solve limiting reagent problems with stoichiometry.')">💬 Ask AI</button>
+                        <span class="pyq-title">Q3. Law of Multiple Proportions ($CO$ and $CO_2$)</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Name the law illustrated by CO and CO2.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">3 Scores</span>
+                    <div class="badges"><span class="year-badge">March 2011</span><span class="score-badge">1 Score</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> 50 kg of $N_2$ (g) and 10 kg of $H_2$ (g) are mixed to produce $NH_3$ (g). Identify the limiting reagent in the production of ammonia in this reaction.</p>
+                    <p><strong>Question:</strong> Name the law of chemical combination illustrated by the pair of compounds, $CO$ and $CO_2$.</p>
                     <div class="solution-box">
-                        <strong>Solution:</strong><br>
-                        Balanced equation: `N₂ (g) + 3H₂ (g) ⇌ 2NH₃ (g)`<br>
-                        1. Moles of $N_2$ = $\frac{50 \times 10^3 \text{ g}}{28 \text{ g/mol}} = 1786 \text{ mol}$.<br>
-                        2. Moles of $H_2$ = $\frac{10 \times 10^3 \text{ g}}{2 \text{ g/mol}} = 5000 \text{ mol}$.<br>
-                        3. According to stoichiometry, 1 mole of $N_2$ requires 3 moles of $H_2$.<br>
-                        4. For $1786 \text{ mol}$ of $N_2$, required $H_2 = 1786 \times 3 = 5358 \text{ mol}$. But we only have $5000 \text{ mol}$ of $H_2$.<br>
-                        <strong>Conclusion:</strong> $H_2$ is consumed first, making <strong>Hydrogen ($H_2$) the limiting reagent</strong>.
+                        <strong>Answer:</strong> Law of Multiple Proportions.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q4. Another Name for One Mole</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('What is another name for one mole?')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Sept 2012</span><span class="score-badge">1 Score</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Mole is a very large number to indicate atoms and molecules. Write another name for one mole.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Avogadro’s Number or Avogadro’s constant ($6.022 \times 10^{23}$).
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q5. Empirical vs Molecular Formula</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('How is molecular formula different from empirical formula?')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Sept 2012</span><span class="score-badge">1 Score</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> How is the molecular formula different from that of the empirical formula?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Empirical formula gives the simplest whole-number ratio of atoms, whereas molecular formula gives the exact actual number of atoms of each element in a molecule.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q6. Significant Figures ($0.0025$)</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('How many significant figures are in 0.0025?')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">August 2014</span><span class="score-badge">1 Score</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> How many significant figures are present in $0.0025$?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Two (2). Leading zeros are non-significant.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q7. Gay-Lussac's Law of Gaseous Volumes</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Name the law illustrated by combining volumes of gases in simple ratios.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">March 2016</span><span class="score-badge">1 Score</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> When nitrogen and hydrogen combine to form ammonia, the ratio between volumes of gaseous reactants and products is $1:3:2$. Name the law illustrated here.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Gay-Lussac’s Law of Gaseous Volumes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q8. Dalton's Atomic Theory / Law of Conservation</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('State the law of conservation of mass.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Model Exam</span><span class="score-badge">1 Score</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Who proposed the first atomic theory of matter?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> John Dalton (Dalton's Atomic Theory).
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q9. Volume of 1 Mole of Gas at STP</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('What is the molar volume of an ideal gas at STP?')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Standard PYQ</span><span class="score-badge">1 Score</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> What is the volume occupied by $1\text{ mole}$ of any ideal gas at Standard Temperature and Pressure (STP)?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> $22.4\text{ litres}$ ($22.4\text{ L}$).
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q10. SI Unit of Amount of Substance</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('What is the SI unit of amount of substance?')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Standard PYQ</span><span class="score-badge">1 Score</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Name the SI base unit for measuring the "amount of substance".</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Mole ($\text{mol}$).
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Category 2 -->
-        <section class="category-section" id="cat2">
-            <h3>2. Inorganic Chemistry & Atomic Structure</h3>
+        <!-- SECTION 2: 2-Score Questions -->
+        <section class="category-section" id="sec2">
+            <h3>2-Score Questions (10 Public Exam PYQs)</h3>
 
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Quantum Numbers & Orbital Nodes Calculation</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to calculate angular, radial, and total nodes for any orbital.')">💬 Ask AI</button>
+                        <span class="pyq-title">Q11. Law of Conservation of Mass Explanation</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('State and explain the law of conservation of mass with an example.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">3 Scores</span>
+                    <div class="badges"><span class="year-badge">March 2011</span><span class="score-badge">2 Scores</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> Calculate the number of angular nodes, radial nodes, and total nodes for a $3p$ orbital. State the formulas used.</p>
+                    <p><strong>Question:</strong> State and explain the law of conservation of mass with a chemical equation.</p>
                     <div class="solution-box">
-                        <strong>Solution:</strong><br>
-                        For $3p$ orbital: $n = 3$, $l = 1$.<br>
-                        1. <strong>Angular nodes</strong> = $l = 1$.<br>
-                        2. <strong>Radial nodes</strong> = $n - l - 1 = 3 - 1 - 1 = 1$.<br>
-                        3. <strong>Total nodes</strong> = $n - 1 = 3 - 1 = 2$.
+                        <strong>Answer:</strong> Matter can neither be created nor destroyed in a chemical reaction. Total mass of reactants = Total mass of products. Example: $2H_2 + O_2 \to 2H_2O$ ($4\text{g} + 32\text{g} = 36\text{g}$).
                     </div>
                 </div>
             </div>
@@ -648,17 +752,33 @@
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Anomalous Configuration & Exchange Energy</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Why do chromium and copper have anomalous electronic configurations?')">💬 Ask AI</button>
+                        <span class="pyq-title">Q12. Law of Multiple Proportions Statement</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('State the law of multiple proportions with an example.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">2 Scores</span>
+                    <div class="badges"><span class="year-badge">August 2014</span><span class="score-badge">2 Scores</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> Copper ($Cu$) has atomic number 29. Write its electronic configuration and give reasons for its stability.</p>
+                    <p><strong>Question:</strong> State the law of multiple proportions.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> If two elements can combine to form more than one compound, the masses of one element that combine with a fixed mass of the other element are in ratios of small whole numbers.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q13. Properties of Cathode Rays</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Write any two properties of cathode rays.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Model Exam</span><span class="score-badge">2 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Write any two properties of cathode rays.</p>
                     <div class="solution-box">
                         <strong>Answer:</strong><br>
-                        Configuration: $[Ar] 3d^{10} 4s^1$ (instead of $3d^9 4s^2$).<br>
-                        <em>Reasons:</em> Fully-filled $d^{10}$ subshell provides maximum symmetrical distribution and high exchange energy, leading to exceptional stability.
+                        • They contain material particles and possess momentum/energy.<br>
+                        • They travel in straight lines and cast shadows of objects placed in their path.
                     </div>
                 </div>
             </div>
@@ -666,95 +786,17 @@
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Dipole Moment Comparison ($NH_3$ vs $NF_3$)</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Why does NH3 have a higher dipole moment than NF3?')">💬 Ask AI</button>
+                        <span class="pyq-title">Q14. Pauli's Exclusion Principle & Orbital Definition</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('State Paulis exclusion principle and define atomic orbital.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">3 Scores</span>
+                    <div class="badges"><span class="year-badge">Model Exam</span><span class="score-badge">2 Scores</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> Between $NH_3$ and $NF_3$, which has a higher dipole moment? Explain.</p>
-                    <div class="solution-box">
-                        <strong>Explanation:</strong><br>
-                        In $NH_3$, nitrogen is more electronegative than hydrogen; orbital dipole and bond dipoles reinforce each other. In $NF_3$, fluorine pulls electrons away, opposing the lone pair dipole, reducing net dipole moment. Hence, $NH_3 > NF_3$.
-                    </div>
-                </div>
-            </div>
-
-            <div class="pyq-card">
-                <div class="pyq-header">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Molecular Orbital Theory & Bond Order ($He_2$)</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Explain using MO theory why He2 molecule does not exist.')">💬 Ask AI</button>
-                    </div>
-                    <span class="score-badge">2 Scores</span>
-                </div>
-                <div class="pyq-body">
-                    <p><strong>Question:</strong> Using Molecular Orbital (MO) theory, calculate the bond order of $He_2$ and explain why it does not exist.</p>
-                    <div class="solution-box">
-                        <strong>Solution:</strong><br>
-                        Electronic configuration of $He_2$ (4 electrons): $\sigma 1s^2 \sigma^* 1s^2$<br>
-                        $\text{Bond Order} = \frac{N_b - N_a}{2} = \frac{2 - 2}{2} = 0$.<br>
-                        Since bond order is zero, the molecule is unstable and cannot exist in nature.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Category 3 -->
-        <section class="category-section" id="cat3">
-            <h3>3. Organic Chemistry Reactions, Mechanisms & Synthesis</h3>
-
-            <div class="pyq-card">
-                <div class="pyq-header">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Markovnikov's Rule & Addition Reaction</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('State and explain Markovnikovs rule with an alkene addition example.')">💬 Ask AI</button>
-                    </div>
-                    <span class="score-badge">3 Scores</span>
-                </div>
-                <div class="pyq-body">
-                    <p><strong>Question:</strong> What happens when propene is treated with hydrogen bromide ($HBr$)? Write the chemical equation and state the rule.</p>
-                    <div class="solution-box">
-                        <strong>Reaction:</strong><br>
-                        <code>CH₃—CH=CH₂ + HBr ⟶ CH₃—CH(Br)—CH₃</code> (2-bromopropane)<br>
-                        <em>Markovnikov's Rule:</em> In the ionic addition of an unsymmetrical reagent to an unsymmetrical alkene, the negative part of the reagent adds to the carbon with fewer hydrogen atoms.
-                    </div>
-                </div>
-            </div>
-
-            <div class="pyq-card">
-                <div class="pyq-header">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Friedel-Crafts Acylation of Benzene</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Explain Friedel-Crafts acylation of benzene with equation and catalyst.')">💬 Ask AI</button>
-                    </div>
-                    <span class="score-badge">3 Scores</span>
-                </div>
-                <div class="pyq-body">
-                    <p><strong>Question:</strong> Explain Friedel-Crafts acylation of benzene with chemical equation. Name the catalyst.</p>
-                    <div class="solution-box">
-                        <strong>Solution:</strong><br>
-                        Reaction of benzene with acetyl chloride in the presence of anhydrous $AlCl_3$ yields acetophenone.<br>
-                        <code>C₆H₆ + CH₃COCl (anhydrous AlCl₃) ⟶ C₆H₅COCH₃ + HCl</code><br>
-                        <em>Catalyst:</em> Anhydrous aluminum chloride ($\text{AlCl}_3$).
-                    </div>
-                </div>
-            </div>
-
-            <div class="pyq-card">
-                <div class="pyq-header">
-                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Wurtz Reaction for Alkanes</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Explain the Wurtz reaction for alkane preparation with an example.')">💬 Ask AI</button>
-                    </div>
-                    <span class="score-badge">2 Scores</span>
-                </div>
-                <div class="pyq-body">
-                    <p><strong>Question:</strong> What is Wurtz reaction? Give an example for the preparation of ethane.</p>
+                    <p><strong>Question:</strong> i) Mention the principle restricting electron pairing in orbitals to two with opposite spins. (1)<br>ii) Define atomic orbital. (1)</p>
                     <div class="solution-box">
                         <strong>Answer:</strong><br>
-                        Alkyl halides react with sodium metal in dry ether to give higher alkanes containing double the number of carbon atoms.<br>
-                        <code>2CH₃Cl + 2Na (dry ether) ⟶ CH₃—CH₃ + 2NaCl</code> (Ethane)
+                        i) Pauli's Exclusion Principle.<br>
+                        ii) Atomic orbital: 3D region around nucleus where electron probability is maximum.
                     </div>
                 </div>
             </div>
@@ -762,40 +804,31 @@
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Carbocation Stability & Hyperconjugation</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Explain carbocation stability and hyperconjugation.')">💬 Ask AI</button>
+                        <span class="pyq-title">Q15. Catalytic Hydrogenation of Alkyne</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Complete: CH3-C=CH + 2H2 -> ?')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">3 Scores</span>
+                    <div class="badges"><span class="year-badge">PYQ 2021</span><span class="score-badge">2 Scores</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> Which is more stable: tertiary carbocation $(CH_3)_3C^+$ or primary carbocation $CH_3CH_2^+$? Give reasons.</p>
+                    <p><strong>Question:</strong> Complete the reaction and name the product: `CH≡C—CH₃ + 2H₂ ⟶ ?`</p>
                     <div class="solution-box">
-                        <strong>Answer:</strong> Tertiary carbocation is more stable.<br>
-                        <em>Reason:</em> It possesses 9 alpha hydrogens compared to 3 in primary carbocation, resulting in greater hyperconjugative structures and electron-donating inductive effect.
+                        <strong>Answer:</strong> `CH₃—CH₂—CH₃` (Propane). Catalytic hydrogenation converts alkynes into alkanes.
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Category 4 -->
-        <section class="category-section" id="cat4">
-            <h3>4. Thermodynamics & Chemical Equilibrium</h3>
 
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Relationship between $K_p$ and $K_c$</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Derive or explain the relationship between Kp and Kc.')">💬 Ask AI</button>
+                        <span class="pyq-title">Q16. Wurtz Reaction for Ethane</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain Wurtz reaction with an example for ethane.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">3 Scores</span>
+                    <div class="badges"><span class="year-badge">PYQ 2021</span><span class="score-badge">2 Scores</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> Write the relation between $K_p$ and $K_c$ for the equilibrium reaction: <code>N₂ (g) + 3H₂ (g) ⇌ 2NH₃ (g)</code></p>
+                    <p><strong>Question:</strong> What is Wurtz reaction? Give equation for preparing ethane.</p>
                     <div class="solution-box">
-                        <strong>Solution:</strong><br>
-                        Formula: $K_p = K_c(RT)^{\Delta n_g}$<br>
-                        Here, $\Delta n_g = 2 - (3 + 1) = -2$.<br>
-                        Thus, $K_p = K_c(RT)^{-2}$.
+                        <strong>Answer:</strong> Alkyl halides react with Na in dry ether to form higher alkanes. `2CH₃Cl + 2Na \xrightarrow{\text{dry ether}} CH_3-CH_3 + 2NaCl`.
                     </div>
                 </div>
             </div>
@@ -803,40 +836,47 @@
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">First Law of Thermodynamics</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('State the first law of thermodynamics.')">💬 Ask AI</button>
+                        <span class="pyq-title">Q17. Huckel's Rule of Aromaticity</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('State Huckels rule of aromaticity.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">2 Scores</span>
+                    <div class="badges"><span class="year-badge">PYQ 2022</span><span class="score-badge">2 Scores</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> State the first law of thermodynamics and write its mathematical equation.</p>
+                    <p><strong>Question:</strong> State Huckel's rule for aromatic compounds.</p>
                     <div class="solution-box">
-                        <strong>Answer:</strong><br>
-                        Energy can neither be created nor destroyed; total energy of an isolated system remains constant.<br>
-                        Equation: $\Delta U = Q + W$
+                        <strong>Answer:</strong> A cyclic, planar, fully conjugated system is aromatic if it contains $(4n + 2)$ $\pi$-electrons ($n = 0, 1, 2\dots$).
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Category 5 -->
-        <section class="category-section" id="cat5">
-            <h3>5. One-Word, Objectives & Assertion-Reasoning (PYQ Archive)</h3>
 
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Conjugate Acid-Base Pair</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Explain conjugate acid-base pairs with examples.')">💬 Ask AI</button>
+                        <span class="pyq-title">Q18. First Law of Thermodynamics</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('State first law of thermodynamics.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">1 Score</span>
+                    <div class="badges"><span class="year-badge">PYQ 2021</span><span class="score-badge">2 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> State the first law of thermodynamics and write its equation.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Energy can neither be created nor destroyed. Equation: $\Delta U = Q + W$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q19. Conjugate Acid-Base Pairs</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Define conjugate acid and base with examples.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2024</span><span class="score-badge">2 Scores</span></div>
                 </div>
                 <div class="pyq-body">
                     <p><strong>Question:</strong> Write the conjugate acid of $NH_3$ and conjugate base of $H_2O$.</p>
                     <div class="solution-box">
-                        <strong>Answer:</strong><br>
-                        • Conjugate acid of $NH_3$ = $NH_4^+$<br>
-                        • Conjugate base of $H_2O$ = $OH^-$
+                        <strong>Answer:</strong> Conjugate acid of $NH_3$ is $NH_4^+$; conjugate base of $H_2O$ is $OH^-$.
                     </div>
                 </div>
             </div>
@@ -844,15 +884,355 @@
             <div class="pyq-card">
                 <div class="pyq-header">
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                        <span class="pyq-title">Oxidation Number in Caro's Acid</span>
-                        <button class="ask-ai-btn" onclick="askOmniroute('Find the oxidation number of sulfur in Caros acid H2SO5.')">💬 Ask AI</button>
+                        <span class="pyq-title">Q20. Oxidation Number in Caro's Acid</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Find oxidation state of sulfur in H2SO5.')">💬 Ask AI</button>
                     </div>
-                    <span class="score-badge">1 Score</span>
+                    <div class="badges"><span class="year-badge">PYQ 2022</span><span class="score-badge">2 Scores</span></div>
                 </div>
                 <div class="pyq-body">
-                    <p><strong>Question:</strong> What is the oxidation number of sulfur in Caro's acid ($H_2SO_5$)?</p>
+                    <p><strong>Question:</strong> Find the oxidation number of sulfur in Caro's acid ($H_2SO_5$).</p>
                     <div class="solution-box">
-                        <strong>Answer:</strong> $+6$.
+                        <strong>Answer:</strong> $+6$ (due to peroxide linkage).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: 3-Score Questions -->
+        <section class="category-section" id="sec3">
+            <h3>3-Score Questions (10 Public Exam PYQs)</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q21. Empirical to Molecular Formula Derivation</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain organic compound molecular formula derivation from percentage composition.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Sept 2012</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> An organic compound gave: $C = 40\%$, $H = 6.66\%$, $O = 53.34\%$. Molecular mass is 90. Calculate its molecular formula.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong><br>
+                        • Moles: $C = 40/12 = 3.33$, $H = 6.66/1 = 6.66$, $O = 53.34/16 = 3.33$.<br>
+                        • Ratio: $C:1, H:2, O:1 \implies \text{Empirical formula } = CH_2O$ (mass = 30).<br>
+                        • $n = 90/30 = 3$. Molecular formula = $C_3H_6O_3$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q22. VSEPR Theory & $H_2O$ Geometry</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain H2O molecular shape using VSEPR theory.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Model Exam</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Explain the shape and bond angle of $H_2O$ molecule using VSEPR theory.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> $sp^3$ hybridization, tetrahedral geometry with 2 lone pairs. Lone pair-lone pair repulsion compresses bond angle from $109.5^\circ$ to $104.5^\circ$ (bent shape).
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q23. Dipole Moment: $NH_3$ vs $NF_3$</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Why does NH3 have higher dipole moment than NF3?')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2022</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Between $NH_3$ and $NF_3$, which has a higher dipole moment and why?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> $NH_3$ is higher because N-H bond dipoles reinforce the lone pair dipole, whereas F pulls electrons away in $NF_3$, opposing and canceling polarity.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q24. Relationship between $K_p$ and $K_c$</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Derive or explain the relation between Kp and Kc.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2023</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Write the relation between $K_p$ and $K_c$ for `N₂ + 3H₂ ⇌ 2NH₃`.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> $K_p = K_c(RT)^{\Delta n_g}$. For this reaction $\Delta n_g = 2 - 4 = -2$, so $K_p = K_c(RT)^{-2}$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q25. Quantum Numbers & Nodes for $3p$</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Calculate angular and radial nodes for 3p orbital.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2024</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Calculate angular, radial, and total nodes for a $3p$ orbital.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> For $3p$ ($n=3, l=1$): Angular = $1$, Radial = $3-1-1 = 1$, Total = $2$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q26. Second Ionization Enthalpy ($Na$ vs $Mg$)</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Why is second IE of sodium higher than magnesium?')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2022</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Why is the second ionization enthalpy of sodium much higher than that of magnesium?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> $Na^+$ achieves a stable neon octet configuration, making removal of a second electron exceptionally difficult.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q27. Molecular Orbital Theory & $He_2$</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Why does He2 molecule not exist according to MOT?')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2020</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Calculate bond order of $He_2$ using MOT and explain why it doesn't exist.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Bond order = $(2-2)/2 = 0$. Zero bond order confirms instability and non-existence.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q28. Markovnikov's Rule</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('State and explain Markovnikovs rule.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2024</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> What happens when HBr reacts with propene? State the rule.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Yields 2-bromopropane. Markovnikov's rule dictates negative part adds to carbon with fewer hydrogens.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q29. Friedel-Crafts Acylation</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain Friedel-Crafts acylation of benzene.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2022</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Explain Friedel-Crafts acylation of benzene with an equation.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Reaction of benzene with acyl chloride in presence of anhydrous $AlCl_3$ gives acetophenone.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q30. Carbocation Hyperconjugation</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain carbocation stability via hyperconjugation.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2020</span><span class="score-badge">3 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Why is tertiary carbocation more stable than primary carbocation?</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Greater number of alpha hydrogens (9 in tertiary vs 3 in primary) providing maximum hyperconjugation.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: 4-Score Questions -->
+        <section class="category-section" id="sec4">
+            <h3>4-Score Questions (10 Public Exam PYQs)</h3>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q31. Burning of Magnesium Metal Stoichiometry</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Calculate moles of oxygen required to produce 240g of MgO.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">March 2009</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Calculate the number of moles of oxygen required to produce $240\text{ g}$ of $MgO$ by burning $Mg$ metal ($Mg = 24, O = 16$).</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong><br>
+                        • Molar mass of $MgO = 24 + 16 = 40\text{ g/mol}$.<br>
+                        • Moles of $MgO = 240 / 40 = 6\text{ mol}$.<br>
+                        • Equation: $2Mg + O_2 \to 2MgO$ ($2\text{ mol } MgO$ require $1\text{ mol } O_2$).<br>
+                        • Therefore, moles of $O_2$ required = $6 / 2 = 3\text{ moles}$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q32. Molar Mass & Volume of $CO_2$ at STP</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Calculate mass and molecules in 112 L of CO2 at STP.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2024</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Calculate mass and total molecules in $112\text{ L}$ of $CO_2$ gas at STP.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong> $n = 112/22.4 = 5\text{ mol}$. Mass = $5 \times 44 = 220\text{ g}$. Molecules = $5 \times 6.022 \times 10^{23} = 3.011 \times 10^{24}$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q33. Limiting Reagent in Haber Process</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Solve limiting reagent problem for N2 and H2 producing NH3.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2021</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> $50\text{ kg}$ of $N_2$ and $10\text{ kg}$ of $H_2$ are mixed to produce $NH_3$. Identify the limiting reagent.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong> Moles of $N_2 = 1786$, Moles of $H_2 = 5000$. Since $1\text{ mol } N_2$ requires $3\text{ mol } H_2$, required $H_2 = 5358\text{ mol}$. We have $5000\text{ mol}$, so $H_2$ is limiting.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q34. Molarity Calculation ($NaOH$)</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Calculate molarity of 8g NaOH in 500mL water.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">March 2011</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Calculate the molarity of a solution containing $8\text{ g}$ of $NaOH$ in $500\text{ mL}$ of water ($Na=23, O=16, H=1$).</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong> Molar mass of $NaOH = 40\text{ g/mol}$. Moles = $8/40 = 0.2\text{ mol}$. Volume = $0.5\text{ L}$. Molarity = $0.2 / 0.5 = 0.4\text{ M}$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q35. Gay-Lussac's Volume Ratio & Molecular Formula</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Solve compound molecular formula problem with relative moles.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">March 2016</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Compound with A (70%) and B (30%) has relative mole ratio 1.25 and 1.88. If molar mass is 160, find molecular formula.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong> Simple ratio gives empirical formula $A_2B_3$ (mass = 80). $n = 160/80 = 2$. Molecular formula = $A_4B_6$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q36. De Broglie Wavelength Calculation</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Calculate de broglie wavelength of an electron moving with given velocity.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Model Exam</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> State de Broglie equation and calculate wavelength of an electron ($m = 9.1 \times 10^{-31}\text{ kg}$) moving at $2 \times 10^6\text{ m/s}$.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong> $\lambda = h / mv = (6.626 \times 10^{-34}) / (9.1 \times 10^{-31} \times 2 \times 10^6) = 3.64 \times 10^{-10}\text{ m}$ ($364\text{ pm}$).
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q37. Enthalpy and Internal Energy (${\Delta H = \Delta U + \Delta n_g RT}$)</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain relation between enthalpy and internal energy.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2023</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Derive the relation between $\Delta H$ and $\Delta U$ for a gaseous reaction.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong> $H = U + PV$. For moles of gas, $PV = nRT \implies \Delta H = \Delta U + \Delta n_g RT$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q38. pH Calculation of Strong Base Solution</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Calculate pH of 0.01M NaOH solution.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2022</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Calculate the pH of a $0.01\text{ M } NaOH$ solution.</p>
+                    <div class="solution-box">
+                        <strong>Solution:</strong> $[OH^-] = 0.01\text{ M} = 10^{-2}\text{ M}$. $\text{pOH} = -\log(10^{-2}) = 2$. $\text{pH} = 14 - 2 = 12$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q39. Balancing Redox Reactions by Ion-Electron Method</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Explain how to balance redox reactions.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">Model Exam</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Explain the steps involved in balancing redox reactions in acidic medium using ion-electron method.</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong> Separate half-reactions $\to$ balance atoms other than H and O $\to$ balance O using $H_2O$ $\to$ balance H using $H^+$ $\to$ balance charge using electrons $\to$ add half-reactions so electrons cancel.
+                    </div>
+                </div>
+            </div>
+
+            <div class="pyq-card">
+                <div class="pyq-header">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                        <span class="pyq-title">Q40. Isomerism in Alkanes (Pentane Isomers)</span>
+                        <button class="ask-ai-btn" onclick="askOmniroute('Write structural isomers of pentane.')">💬 Ask AI</button>
+                    </div>
+                    <div class="badges"><span class="year-badge">PYQ 2021</span><span class="score-badge">4 Scores</span></div>
+                </div>
+                <div class="pyq-body">
+                    <p><strong>Question:</strong> Write the IUPAC names and structural formulas of the chain isomers of pentane ($C_5H_{12}$).</p>
+                    <div class="solution-box">
+                        <strong>Answer:</strong><br>
+                        1. $CH_3-CH_2-CH_2-CH_2-CH_3$ (n-Pentane)<br>
+                        2. $CH_3-CH(CH_3)-CH_2-CH_3$ (2-Methylbutane / Isopentane)<br>
+                        3. $C(CH_3)_4$ (2,2-Dimethylpropane / Neopentane)
                     </div>
                 </div>
             </div>
@@ -866,10 +1246,10 @@
             <h3>Omniroute Gemini AI</h3>
             <button class="close-sidebar-btn" onclick="toggleAISidebar()">✕ Close</button>
         </div>
-        <p class=\"ai-sub\">Connected to <code>throws-rise-organic-waiver.trycloudflare.com</code> (model: <code>auto/gemini</code>).</p>
+        <p class="ai-sub">Connected to <code>https://throws-rise-organic-waiver.trycloudflare.com/v1</code> (model: <code>auto/gemini</code>).</p>
         
         <div class="chat-box" id="chatBox">
-            <div class="chat-msg ai">👋 Hello! I am connected to your local Omniroute gateway. Ask me any chemistry question or click <strong>"Ask AI"</strong> on any question card!</div>
+            <div class="chat-msg ai">👋 Hello! I am connected to your Cloudflare tunnel Omniroute gateway. Ask me any chemistry question or click <strong>"Ask AI"</strong> on any question card!</div>
         </div>
         <div class="ai-input-area">
             <div class="ai-input-wrapper">

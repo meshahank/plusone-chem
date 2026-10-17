@@ -65,6 +65,7 @@
             background: var(--surface-color);
             border-right: 1px solid var(--border);
             height: 100vh;
+            max-height: 100vh;
             position: fixed;
             top: 0;
             left: 0;
@@ -75,6 +76,7 @@
             gap: 1.5rem;
             z-index: 10;
             transition: transform 0.3s ease;
+            box-sizing: border-box;
         }
 
         sidebar.closed {
@@ -85,6 +87,26 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .nav-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .close-nav-btn {
+            background: var(--surface-alt);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .close-nav-btn:hover {
+            border-color: var(--accent);
         }
 
         .logo-area h1 {
@@ -513,16 +535,20 @@
 <body>
 
     <sidebar id="navSidebar">
+        <div class="nav-header-row">
+            <h1 style="font-family: 'Instrument Serif', serif; font-size: 1.8rem; color: var(--accent);">Plus One 10-PYQ</h1>
+            <button class="close-nav-btn" onclick="toggleNavSidebar()">✕ Close</button>
+        </div>
         <div class="logo-area">
-            <h1>Plus One<br>10-PYQ Vault</h1>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Exam Question Vault</span>
             <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌓</button>
         </div>
         <input type="text" class="search-box" id="searchBox" placeholder="Search PYQs, scores..." onkeyup="filterContent()">
         <div class="nav-links">
-            <a href="#sec1">1. 1-Score Questions (10 PYQs)</a>
-            <a href="#sec2">2. 2-Score Questions (10 PYQs)</a>
-            <a href="#sec3">3. 3-Score Questions (10 PYQs)</a>
-            <a href="#sec4">4. 4-Score Questions (10 PYQs)</a>
+            <a href="#sec1" onclick="toggleNavSidebar()">1. 1-Score Questions (10 PYQs)</a>
+            <a href="#sec2" onclick="toggleNavSidebar()">2. 2-Score Questions (10 PYQs)</a>
+            <a href="#sec3" onclick="toggleNavSidebar()">3. 3-Score Questions (10 PYQs)</a>
+            <a href="#sec4" onclick="toggleNavSidebar()">4. 4-Score Questions (10 PYQs)</a>
         </div>
     </sidebar>
 
